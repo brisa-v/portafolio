@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio Pro</title>
@@ -98,37 +100,6 @@
     </div>
   </div>
 </section>
-
-  <!-- Skills -->
-  <section class="px-6 max-w-3xl mx-auto mt-12">
-    <h2 class="text-3xl text-purple-300 font-bold mb-6">Skills</h2>
-    <div class="space-y-6">
-      <div>
-        <p class="flex justify-between"><span>HTML</span><span>80%</span></p>
-        <div class="w-full bg-gray-700 rounded-full h-2.5">
-          <div class="bg-purple-500 h-2.5 rounded-full" style="width: 80%"></div>
-        </div>
-      </div>
-      <div>
-        <p class="flex justify-between"><span>CSS</span><span>90%</span></p>
-        <div class="w-full bg-gray-700 rounded-full h-2.5">
-          <div class="bg-purple-500 h-2.5 rounded-full" style="width: 90%"></div>
-        </div>
-      </div>
-      <div>
-        <p class="flex justify-between"><span>JavaScript</span><span>60%</span></p>
-        <div class="w-full bg-gray-700 rounded-full h-2.5">
-          <div class="bg-purple-500 h-2.5 rounded-full" style="width: 60%"></div>
-        </div>
-      </div>
-      <div>
-        <p class="flex justify-between"><span>React</span><span>85%</span></p>
-        <div class="w-full bg-gray-700 rounded-full h-2.5">
-          <div class="bg-purple-500 h-2.5 rounded-full" style="width: 85%"></div>
-        </div>
-      </div>
-    </div>
-  </section>
   
   <!-- Projects -->
 <section class="px-6 max-w-5xl mx-auto mt-20">
@@ -170,6 +141,13 @@
   <footer class="text-center mt-20 py-10 text-gray-500 text-sm">
     Portafolio creado por <!-- Aquí tu nombre -->
   </footer>
-
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,  // duración de la animación (ms)
+    once: true       // animar solo una vez
+  });
+</script>
 </body>
 </html>
