@@ -8,5 +8,5 @@
 }
 
 .animate-border-progress {
-  animation: border-progress 2s ease forwards;
+  animation: border-progress 2s ease-in-out infinite;
 }
