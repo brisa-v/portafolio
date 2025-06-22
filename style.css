@@ -1,12 +1,34 @@
-@keyframes border-progress {
+/* Animación para bordes circulares */
+@keyframes border-circular {
   0% {
-    clip-path: inset(0 100% 0 0);
+    transform: translateX(0%) translateY(0%);
+  }
+  25% {
+    transform: translateX(100%) translateY(0%);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%);
+  }
+  75% {
+    transform: translateX(0%) translateY(100%);
   }
   100% {
-    clip-path: inset(0 0 0 0);
+    transform: translateX(0%) translateY(0%);
   }
 }
 
-.animate-border-progress {
-  animation: border-progress 2s ease-in-out infinite;
+.circular-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.circular-border::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-top-color: #a855f7; /* Purple-500 */
+  border-radius: 12px;
+  animation: border-circular 4s linear infinite;
 }
