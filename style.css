@@ -1,5 +1,40 @@
-/* Animación para el borde animado con gradiente */
-@keyframes border-glow {
+/* Agrega esto a tu style.css sin borrar lo anterior */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 40px;
+}
+
+.skill-box {
+  position: relative;
+  width: 220px;
+  height: 140px;
+  padding: 1.5rem;
+  background-color: #0f172a;
+  border-radius: 20px;
+  z-index: 0;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+}
+
+.skill-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, #a855f7, #06b6d4, #a855f7);
+  background-size: 400% 400%;
+  animation: border-animation 8s linear infinite;
+  z-index: -1;
+  border-radius: 22px;
+}
+
+@keyframes border-animation {
   0% {
     background-position: 0% 50%;
   }
@@ -8,69 +43,13 @@
   }
 }
 
-/* Estilo general del body (opcional si quieres fondo oscuro) */
-body {
-  background: #0f172a;
-  font-family: sans-serif;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-}
-
-/* Caja para cada porcentaje */
-.skill-box {
-  position: relative;
-  background: #0f172a;
-  border-radius: 16px;
-  padding: 30px 40px;
-  margin: 20px 0;
-  width: 80%;
-  max-width: 500px;
-  text-align: center;
-  z-index: 1;
-  overflow: hidden;
-}
-
-/* El borde animado usando ::before */
-.skill-box::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(270deg, #a855f7, #3b82f6, #06b6d4, #a855f7);
-  background-size: 600% 600%;
-  animation: border-glow 6s linear infinite;
-  z-index: -1;
-  border-radius: 18px;
-}
-
-/* Para asegurar que el fondo interior sea del color del contenedor */
-.skill-box::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  background: #0f172a;
-  z-index: -1;
-  border-radius: 14px;
-}
-
-/* Título del porcentaje */
-.skill-box h3 {
+.skill-box span {
   font-size: 2rem;
-  margin: 0;
-  color: #fff;
+  font-weight: bold;
+  display: block;
 }
 
-/* Descripción */
 .skill-box p {
   margin-top: 10px;
   font-size: 1rem;
-  color: #cbd5e1;
 }
