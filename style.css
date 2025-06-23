@@ -1,44 +1,49 @@
-/* Animación circular del borde girando */
-@keyframes circular-border {
+/* Animación de línea inferior deslizante */
+@keyframes slide-line {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(-100%);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translateX(100%);
   }
 }
 
-/* Contenedor que tendrá el borde animado */
-.circular-border {
+/* Contenedor general del porcentaje */
+.skill-box {
   position: relative;
-  overflow: hidden;
-  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
 }
 
-/* Capa animada detrás del contenido */
-.circular-border::before {
+/* Texto de porcentaje */
+.skill-box h3 {
+  font-size: 2rem;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Título debajo del número */
+.skill-box p {
+  margin: 8px 0 0;
+  z-index: 2;
+  position: relative;
+}
+
+/* Línea animada debajo del porcentaje */
+.skill-box::after {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(
-    from 0deg,
-    #a855f7,
-    #c084fc,
-    #a855f7,
-    #c084fc,
-    #a855f7
-  );
-  animation: circular-border 4s linear infinite;
-  transform-origin: center;
-  z-index: 0;
-  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Asegura que el contenido quede por encima de la animación */
-.circular-border > * {
-  position: relative;
-  z-index: 1;
+.skill-box::after {
+  background: linear-gradient(90deg, transparent, #a855f7, transparent);
+  animation: slide-line 2s linear infinite;
 }
