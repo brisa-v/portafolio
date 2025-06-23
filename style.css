@@ -1,49 +1,76 @@
-/* Animación de línea inferior deslizante */
-@keyframes slide-line {
+/* Animación para el borde animado con gradiente */
+@keyframes border-glow {
   0% {
-    transform: translateX(-100%);
+    background-position: 0% 50%;
   }
   100% {
-    transform: translateX(100%);
+    background-position: 100% 50%;
   }
 }
 
-/* Contenedor general del porcentaje */
+/* Estilo general del body (opcional si quieres fondo oscuro) */
+body {
+  background: #0f172a;
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Caja para cada porcentaje */
 .skill-box {
   position: relative;
-  padding: 20px;
+  background: #0f172a;
+  border-radius: 16px;
+  padding: 30px 40px;
+  margin: 20px 0;
+  width: 80%;
+  max-width: 500px;
   text-align: center;
-  color: white;
-  font-family: sans-serif;
-}
-
-/* Texto de porcentaje */
-.skill-box h3 {
-  font-size: 2rem;
-  margin: 0;
-  position: relative;
-  z-index: 2;
-}
-
-/* Título debajo del número */
-.skill-box p {
-  margin: 8px 0 0;
-  z-index: 2;
-  position: relative;
-}
-
-/* Línea animada debajo del porcentaje */
-.skill-box::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
+  z-index: 1;
   overflow: hidden;
 }
 
+/* El borde animado usando ::before */
+.skill-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, #a855f7, #3b82f6, #06b6d4, #a855f7);
+  background-size: 600% 600%;
+  animation: border-glow 6s linear infinite;
+  z-index: -1;
+  border-radius: 18px;
+}
+
+/* Para asegurar que el fondo interior sea del color del contenedor */
 .skill-box::after {
-  background: linear-gradient(90deg, transparent, #a855f7, transparent);
-  animation: slide-line 2s linear infinite;
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: #0f172a;
+  z-index: -1;
+  border-radius: 14px;
+}
+
+/* Título del porcentaje */
+.skill-box h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: #fff;
+}
+
+/* Descripción */
+.skill-box p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #cbd5e1;
 }
